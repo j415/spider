@@ -2,9 +2,8 @@
 
 from lxml import etree
 
-
 text = ''' <div> <ul> 
-        <li class="item-1"><a">first item</a></li> 
+        <li class="item-1"><a>text item</a><a>first item</a></li> 
         <li class="item-1"><a href="link2.html">second item</a></li> 
         <li class="item-inactive"><a href="link3.html">third item</a></li> 
         <li class="item-1"><a href="link4.html">fourth item</a></li> 
@@ -26,22 +25,18 @@ ret2 = html.xpath("//li[@class='item-1']/a/text()")
 print(ret2)
 
 # 每个li是一条新闻，把url和文本组成字典
-
 for href in ret1:
     item = {}
     item["href"] = href
     item["title"] = ret1[ret1.index(href)]
     print(item)
 
-
-print("*"*100)
+print("*" * 100)
 # 根据li标签进行分组对每一组继续写xpath
 ret3 = html.xpath("//li[@class='item-1']")
 print(ret3)
 for i in ret3:
     item = {}
-    item["title"] = i.xpath("./a/text()")[0] if len(i.xpath("./a/text()"))>0 else None
-    item["href"] = i.xpath("./a/@href")[0] if len(i.xpath("./a/@href"))>0 else None
+    item["title"] = i.xpath("./a/text()")[0] if len(i.xpath("./a/text()")) > 0 else None
+    item["href"] = i.xpath("./a/@href")[0] if len(i.xpath("./a/@href")) > 0 else None
     print(item)
-
-
