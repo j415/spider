@@ -1,20 +1,17 @@
-#author: aspiring
+# author: aspiring
 
 from selenium import webdriver
-
 
 # 实例化一个浏览器
 chrome_path = r"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 # webdriver_path = r"E:/chromedriver/chromedriver.exe"
 webdriver_path = r"C:/Users/Administrator/Anaconda3/chromedriver.exe"
 
-
-
 driver = webdriver.Chrome(webdriver_path)
 # driver = webdriver.PhantomJS()
 
 # 设置窗口大小
-driver.set_window_size(1920,1080)
+driver.set_window_size(1920, 1080)
 
 # 最大化窗口
 # driver.maximize_window()
