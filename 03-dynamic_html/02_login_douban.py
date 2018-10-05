@@ -6,7 +6,9 @@ import requests
 from yundama.dama import indetify
 
 # 实例化driver
-driver = webdriver.Chrome()
+
+chromedriver_path = "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe"
+driver = webdriver.Chrome(chromedriver_path)
 driver.get("https://www.douban.com/")
 
 driver.find_element_by_id("form_email").send_keys("784542623@qq.com")
