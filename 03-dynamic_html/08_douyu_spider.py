@@ -3,23 +3,25 @@
 from selenium import webdriver
 import time
 
+
 class DouyuSpider:
     def __init__(self):
         self.start_url = "https://www.douyu.com/directory/all"
+        # print(self.start_url)
         self.driver = webdriver.Chrome("C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe")
 
     def get_content_list(self):
         li_list = self.driver.find_elements_by_xpath("//ul[@id='live-list-contentbox']/li")
+        print(li_list)
         content_list = []
         for li in li_list:
             item = {}
-            # item["room_img"] = li.find_element_by_xpath(".//span[@class='imgbox']/img").get_attribute("src")
             item["room_img"] = li.find_element_by_xpath(".//span[@class='imgbox']/img").get_attribute("src")
             item["room_title"] = li.find_element_by_xpath("./a").get_attribute("title")
             item["room_cate"] = li.find_element_by_xpath(".//span[@class='tag ellipsis']").text
             item["anchor_name"] = li.find_element_by_xpath(".//span[@class='dy-name ellipsis fl']").text
             item["watch_num"] = li.find_element_by_xpath(".//span[@class='dy-num fr']").text
-            print(item)
+            # print(item)
             content_list.append(item)
 
         # 获取下一页元素

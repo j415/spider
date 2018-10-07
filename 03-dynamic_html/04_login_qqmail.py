@@ -3,8 +3,8 @@
 import time
 from selenium import webdriver
 
-chromedriver_path = "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe"
-driver = webdriver.Chrome(chromedriver_path)
+# 实例化一个浏览器
+driver = webdriver.Chrome()
 driver.get("http://mail.qq.com/")
 
 # 切换到iframe

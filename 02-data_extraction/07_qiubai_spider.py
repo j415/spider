@@ -25,6 +25,7 @@ class QiubaiSpider:
             item = {}
             item["content"] = div.xpath(".//div[@class='content']/span/text()")
             item["content"] = [i.replace("\n", "") for i in item["content"]]
+
             item["author_gender"] = div.xpath(".//div[contains(@class,'articleGender')]/@class")
             item["author_gender"] = item["author_gender"][0].split(" ")[-1].replace("Icon", "") if len(item["author_gender"]) > 0 else None
             item["author_age"] = div.xpath(".//div[contains(@class,'articleGender')]/text()")
