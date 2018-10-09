@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for tencent project
+# Scrapy settings for sunshine project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,13 +9,16 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'tencent'
+BOT_NAME = 'sunshine'
 
-SPIDER_MODULES = ['tencent.spiders']
-NEWSPIDER_MODULE = 'tencent.spiders'
+SPIDER_MODULES = ['sunshine.spiders']
+NEWSPIDER_MODULE = 'sunshine.spiders'
+
+MONGO_HOST = "localhost"
 
 
 LOG_LEVEL = "WARNING"
+# LOG_FILE = "./sun.log"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
@@ -49,13 +52,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'tencent.middlewares.TencentSpiderMiddleware': 543,
+#    'sunshine.middlewares.SunshineSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'tencent.middlewares.TencentDownloaderMiddleware': 543,
+#    'sunshine.middlewares.SunshineDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -67,7 +70,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'tencent.pipelines.TencentPipeline': 300,
+   'sunshine.pipelines.SunshinePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

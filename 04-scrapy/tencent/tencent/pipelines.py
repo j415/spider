@@ -6,12 +6,15 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from pymongo import MongoClient
+from .items import TencentItem
 
 client = MongoClient()
 collection = client["tencent"]["hr"]
 
+
 class TencentPipeline(object):
     def process_item(self, item, spider):
-        print(item)
-        collection.insert(item)
+        if isinstance(item, TencentItem):
+            print(item)
+            collection.insert(dict(item))
         return item
